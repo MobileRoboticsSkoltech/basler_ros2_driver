@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>basler_ros2</name>
+  <version>0.0.0</version>
+  <description>Pylon based ROS2 Foxy driver for Basler cameras</description>
+  <maintainer email="devilox96@yandex.ru">devilox</maintainer>
+  <license>Apache-2.0 License</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>image_transport</depend>
+  <depend>std_msgs</depend>
+  <depend>camera_calibration_parsers</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

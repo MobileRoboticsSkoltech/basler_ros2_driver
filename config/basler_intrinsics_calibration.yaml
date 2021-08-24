@@ -1,0 +1,22 @@
+# Basler camera intrinsics
+image_width: 1920
+image_height: 1200
+camera_name: cam0
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [2.16795656e+03, 0, 9.62176452e+02, 0, 2.16779267e+03, 5.82768994e+02, 0, 0, 1]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.20933685, 0.16842253, -0.00055348, 0.00107677, 0.0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [2.06244556e+03, 0, 9.64127962e+02, 0, 0, 2.06156592e+03, 5.81826082e+02, 0, 0, 0, 1, 0]
+
