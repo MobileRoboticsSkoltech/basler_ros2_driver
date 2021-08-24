@@ -33,7 +33,9 @@ if (NOT ${Pylon_FOUND})
 endif()
 #---Pylon---#
 
-add_executable(basler_node src/BaslerNode.cpp)
+add_executable(basler_node
+        src/main.cpp
+        src/BaslerNode.cpp)
 target_include_directories(basler_node PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
