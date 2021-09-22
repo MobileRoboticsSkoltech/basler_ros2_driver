@@ -17,6 +17,7 @@ endif()
 
 #---ROS packages---#
 find_package(ament_cmake REQUIRED)
+find_package(ament_index_cpp REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(std_msgs REQUIRED)
@@ -33,6 +34,10 @@ if (NOT ${Pylon_FOUND})
 endif()
 #---Pylon---#
 
+#---YAML---#
+find_package(yaml-cpp)
+#---YAML---#
+
 add_executable(basler_node
         src/main.cpp
         src/BaslerNode.cpp)
@@ -41,12 +46,14 @@ target_include_directories(basler_node PUBLIC
         $<INSTALL_INTERFACE:include>
         ${Pylon_INCLUDE_DIRS})
 target_link_libraries(basler_node
-        ${Pylon_LIBRARIES})
+        ${Pylon_LIBRARIES}
+        ${YAML_CPP_LIBRARIES})
 ament_target_dependencies(basler_node
         rclcpp
         image_transport
         camera_calibration_parsers
-        std_msgs)
+        std_msgs
+        ament_index_cpp)
 
 install(TARGETS basler_node
         DESTINATION lib/${PROJECT_NAME})
@@ -56,8 +63,8 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(DIRECTORY
-        config
-        DESTINATION share/${PROJECT_NAME}/)
+install(DIRECTORY config
+        DESTINATION share/${PROJECT_NAME}/
+)
 
 ament_package()
